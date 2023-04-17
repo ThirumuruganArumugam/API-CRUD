@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         /* Invoke the onPress function */
         onPressed: () {
           
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           /* Using the instance call the function inputPopup */
           _textController.clear();
         },
-        child: const Icon(Icons.add_outlined),
+        label: const Icon(Icons.add_outlined),
       ),
       appBar: AppBar(
         title: const Text("AVENGERS DATABASE"),
@@ -185,6 +185,9 @@ class _HomeScreenState extends State<HomeScreen> {
             content: SingleChildScrollView(
               child: ListBody(children: [
                 TextFormField(
+                  readOnly: true,
+                  autofocus: true,
+                  textCapitalization: TextCapitalization.sentences,
                   
                   /* Create a textEditingController instance as _editingController*/
                   controller: _editingController,
