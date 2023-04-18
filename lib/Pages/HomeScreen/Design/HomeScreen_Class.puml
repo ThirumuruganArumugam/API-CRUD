@@ -28,6 +28,18 @@ package Pages{
 
 }
 
+package Services{
+    package AvengerServices{
+        abstract class IAvengerService{
+            + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
+            + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
+            + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
+            + deleteAvenger (AvengerBO deleteAvengerName): Future<ServiceResult<List<AvengerBO>>>
+
+        }
+    }
+}
+
 package BOs{
     package AvengerBo{
         class AvengerBO{
@@ -40,4 +52,5 @@ package BOs{
 HomeScreenView --> HomeScreenVM : uses
 HomeScreenVM --> HomeScreenModel : extends
 HomeScreenModel --> AvengerBO : uses
+HomeScreenVM --> IAvengerService : uses
 @enduml
