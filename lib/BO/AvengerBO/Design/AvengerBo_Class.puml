@@ -35,8 +35,8 @@ package Pages{
 }
 
 
-AvengerBO --> HomeScreenModel : uses
-AvengerBO --> IAvengerService : uses
+HomeScreenModel --> AvengerBO : uses
+IAvengerService --> AvengerBO : uses
 
 
 @enduml
