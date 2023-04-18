@@ -1,0 +1,29 @@
+@startuml Services Class Diagram
+
+package Services{
+    package AvengerServices{
+        abstract class IAvengerService{
+            + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
+            + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
+            + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
+            + deleteAvenger (AvengerBO deleteAvengerName): Future<ServiceResult<List<AvengerBO>>>
+
+        }
+    }
+}
+
+package AppConstants{
+    class AppConstants{
+        + avengerServiceBaseUrl : String
+        + avengerServiceGetAllAvengerEndPoint : String
+        + avengerServiceCreateNewHeroEndPoint : String
+        + avengerServiceEditHeroEndPoint : String
+    }
+}
+
+
+
+IAvengerService --> AppConstants : uses
+
+
+@enduml

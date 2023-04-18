@@ -1,0 +1,55 @@
+@startuml Services Class Diagram
+
+package Services{
+    package AvengerServices{
+        abstract class IAvengerService{
+            + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
+            + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
+            + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
+            + deleteAvenger (AvengerBO deleteAvengerName): Future<ServiceResult<List<AvengerBO>>>
+
+        }
+    }
+}
+
+package BOs{
+    package AvengerBo{
+        class AvengerBO{
+            + id : int
+            + name : String
+        }
+    }
+}
+
+package AppConstants{
+    class AppConstants{
+        + avengerServiceBaseUrl : String
+        + avengerServiceGetAvengerEndPoint : String
+        + avengerServiceCreateHeroEndPoint : String
+        + avengerServiceEditEndPoint : String
+    }
+}
+
+package pages{
+    package HomeScreen
+    {
+        class HomeScreenVM{
+            + fetchAllAvengers() : Future<void>
+            + showInputPopUp(int index) : void
+            + createAvenger(String nameOfAvenger) : Future<void>
+            + navigateToPreviousView() : void
+            + editAvenger(int indexs, String names) : Future<void>
+            + deleteAvenger(int indexs) : void
+            + inputPopUp() : void
+        }
+    }
+}
+
+
+
+IAvengerService --> AvengerBO : uses
+IAvengerService --> AppConstants : uses
+HomeScreenVM --> IAvengerService : uses
+
+
+@enduml
