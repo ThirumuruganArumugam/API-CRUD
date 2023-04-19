@@ -1,42 +1,37 @@
 @startuml Services Class Diagram
 
-package Services{
-    package AvengerServices{
-        abstract class IAvengerService{
-            + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
-            + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
-            + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
-            + deleteAvenger (AvengerBO deleteAvengerName): Future<ServiceResult<List<AvengerBO>>>
+package Services.AvengerServices
+{
+    abstract class IAvengerService
+    {
+        + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
+        + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
+        + editAvenger (AvengerBO editAvenger): Future<ServiceResult<List<AvengerBO>>>
+        + deleteAvenger (AvengerBO deleteAvenger): Future<ServiceResult<List<AvengerBO>>>
 
-        }
     }
 }
 
-
-package BOs{
-    package AvengerBo{
-        class AvengerBO{
-            + id : int
-            + name : String
-        }
+package BOs.AvengerBO
+{
+    class AvengerBO
+    {
+        + id : int
+        + name : String
     }
 }
 
-
-package Pages{
-    package HomeScreen{
-
-        class HomeScreenModel{
-            + allAvengers : List<AvengerBO>
-            + isAvengersLoading : bool
-        }
+package Pages.HomeScreen
+{
+    class HomeScreenModel
+    {
+        + allAvengers : List<AvengerBO>
+        + isAvengersLoading : bool
     }
 
 }
 
-
-HomeScreenModel --> AvengerBO : uses
-IAvengerService --> AvengerBO : uses
-
+BOs.AvengerBO.AvengerBO <-- HomeScreenModel: uses
+BOs.AvengerBO.AvengerBO <-- IAvengerService: uses
 
 @enduml

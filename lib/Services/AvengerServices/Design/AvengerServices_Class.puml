@@ -2,7 +2,8 @@
 
 package Services{
     package AvengerServices{
-        abstract class IAvengerService{
+        abstract class IAvengerService
+        {
             + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
             + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
             + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
@@ -13,7 +14,7 @@ package Services{
 }
 
 package BOs{
-    package AvengerBo{
+    package AvengerBO{
         class AvengerBO{
             + id : int
             + name : String
@@ -21,16 +22,20 @@ package BOs{
     }
 }
 
-package AppConstants{
-    class AppConstants{
-        + avengerServiceBaseUrl : String
-        + avengerServiceGetAvengerEndPoint : String
-        + avengerServiceCreateHeroEndPoint : String
-        + avengerServiceEditEndPoint : String
+package Helpers{
+    package AppConstants
+    {
+        class AppConstants
+        {
+            + avengerServiceBaseUrl : String
+            + avengerServiceGetAvengerEndPoint : String
+            + avengerServiceCreateHeroEndPoint : String
+            + avengerServiceEditEndPoint : String
+        }
     }
 }
 
-package pages{
+package Pages{
     package HomeScreen
     {
         class HomeScreenVM{
@@ -38,8 +43,8 @@ package pages{
             + showInputPopUp(int index) : void
             + createAvenger(String nameOfAvenger) : Future<void>
             + navigateToPreviousView() : void
-            + editAvenger(int indexs, String names) : Future<void>
-            + deleteAvenger(int indexs) : void
+            + editAvenger(int index, String names) : Future<void>
+            + deleteAvenger(int index) : void
             + inputPopUp() : void
         }
     }
@@ -47,8 +52,8 @@ package pages{
 
 
 
-IAvengerService --> AvengerBO : uses
-IAvengerService --> AppConstants : uses
+IAvengerService --> BOs.AvengerBO.AvengerBO : uses
+IAvengerService --> Helpers.AppConstants.AppConstants : uses
 HomeScreenVM --> IAvengerService : uses
 
 

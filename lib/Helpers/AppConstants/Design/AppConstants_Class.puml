@@ -5,8 +5,8 @@ package Services{
         abstract class IAvengerService{
             + getAllAvengers(): Future<ServiceResult<List<AvengerBO>>>
             + createAvenger (AvengerBO newHero): Future<ServiceResult<List<AvengerBO>>>
-            + editAvenger (AvengerBO editAvengerName): Future<ServiceResult<List<AvengerBO>>>
-            + deleteAvenger (AvengerBO deleteAvengerName): Future<ServiceResult<List<AvengerBO>>>
+            + editAvenger (AvengerBO editAvenger): Future<ServiceResult<List<AvengerBO>>>
+            + deleteAvenger (AvengerBO deleteAvenger): Future<ServiceResult<List<AvengerBO>>>
 
         }
     }

@@ -1,5 +1,5 @@
 
-import 'package:apiintegration/BO/AvengerBo/AvengerBO.dart';
+import 'package:apiintegration/BO/AvengerBO/AvengerBO.dart';
 import 'package:apiintegration/Helpers/APIHandlerHelper/APIHandlerHelper.dart';
 
 abstract class IAvengerService {

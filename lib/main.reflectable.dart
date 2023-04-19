@@ -2,7 +2,7 @@
 // https://github.com/dart-lang/reflectable.
 
 import 'dart:core';
-import 'package:apiintegration/BO/AvengerBo/AvengerBO.dart' as prefix1;
+import 'package:apiintegration/BO/AvengerBO/AvengerBO.dart' as prefix1;
 import 'package:dart_json_mapper/src/model/annotations.dart' as prefix0;
 
 // ignore_for_file: camel_case_types
